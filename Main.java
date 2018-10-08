@@ -7,7 +7,6 @@ public class Main {
 		Bombilla bombilla[] = new Bombilla[Bombilla.CANTIDAD_BOMBILLAS];  // esto es un array de objetos Bombillas.
 		int respuesta;  // Representa la opcion elejida y la intensidad de la bombilla.
 
-	
 		do {
 			respuesta = Bombilla.menu();  // Llama al menu de opciones devolviendo un valor entero.
 			
@@ -39,9 +38,7 @@ public class Main {
 		}
 			
 		}while(respuesta != 0);
-		
 	}
-	
 }
 
 
@@ -53,7 +50,6 @@ A12 - Bombillas de intensidad variable
 [x] Si la intensidad sobrepasa el nivel 5 la bombilla se quema y deja de funcionar. Ya no se puede modificar la intensidad de 
    la bombilla si está apagada. 
    
-
 [x]1) Diseñar una aplicación Java que controle seis bombillas de manera las lleve a un estado inicial en que una bombilla esté 
      apagada y cada una de las otras tenga una intensidad diferente. Muestre este estado inicial
 
@@ -69,10 +65,6 @@ Modifique la clase bombilla que hicisteis en la sesión anterior de manera que se
 3 [x] ¿Cuáles son las bombillas que se han fundido (hay que asignar un número diferente en cada bombilla). Puede suponer que como 
      mucho habrá 20 bombillas.
 
-A parte [x] poner cuando una bomnilla se quema.
-
-
-
-
+A parte [x] poner cuando una bombilla se quema.
 
 */

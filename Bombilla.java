@@ -8,8 +8,7 @@ public class Bombilla {
 	static final int CANTIDAD_BOMBILLAS = 20, MAX_INTENSIDAD = 5;
 
 	private int intensidad;
-	private boolean estadoFisico; // Encendido o apagado, Si esta quemada o no.
-	private String estado;
+	private String estado;  // Encendido o apagado, Si esta quemada o no.
 
 	// CONSTRUCTOR
 	public Bombilla(int intensidad) {
@@ -19,10 +18,6 @@ public class Bombilla {
 	// GETTERS
 	public int getIntensidad() {
 		return intensidad;
-	}
-	
-	public boolean isEstadoFisico() {
-		return estadoFisico;
 	}
 
 	public String getEstado() {
@@ -36,29 +31,24 @@ public class Bombilla {
 			this.intensidad = intensidad;
 		}
 	}
-	
-	public void setEstadoFisico(boolean estadoFisico) {
-		this.estadoFisico = estadoFisico;
-	}
 
 	public void setEstado(String estado) {
 		this.estado = estado;
 	} 
 	
 	
-
 	// DETALLES DE BOMBILLAS
 	public void detallesEstadoBombilla(int numero) {
 		if (intensidad == 0) { 
-			estado = " Apagado";
+			estado = "Apagado";
 		} else if (intensidad > 0 && intensidad <= 5) {
-			estado = " Encendido";
+			estado = "Encendido";
 		}
-		System.out.print("\nLa intensidad es de " + intensidad + " en la bombilla Nº" + (numero + 1) + ", se encuentra: "  + estado);
+		System.out.print("\nLa intensidad es de " + intensidad + " en la bombilla Nº" + (numero + 1) + ", se encuentra: "  +  estado);
 	}
 	
-	
-	
+
+	//------------------------------------------------------------------------------------------------------------------------------------------
 	//------------------------------------------------------------------------------------------------------------------------------------------
 	
 	// Esto es para mostrar el menú de opciones.
@@ -85,9 +75,7 @@ public class Bombilla {
 			return dato;
 		}
 	//-----------------------------------------------------------------------------------------------------------------------------------------
-	
-	
-	
+    //------------------------------------------------------------------------------------------------------------------------------------------
 	
 	// CASO 1: Este método recibira un objeto e inicializa las 6 bombillas de 0 a 5
 	static void inicializar(Object bombilla[]) {
@@ -99,7 +87,6 @@ public class Bombilla {
 	}
 	
 	
-
 	//CASO 2: Es para mostrar el estado de las bombillas
 	static void muestraEstados(Object bombilla[]) {
 		try {
@@ -145,6 +132,7 @@ public class Bombilla {
 		System.out.println("\n\n");
 	}
 	
+	
 	//CASO 4:  aqui se ven las candidades de bombillas quemadas, apagadas y encendidas.
 	static void estadosCantidad(Object bombilla[]) {
 		int encendidas = 0, apagadas = 0, quemadas = 0;
@@ -172,14 +160,13 @@ public class Bombilla {
 	}
 
 
-	//CASO 5: id de bombilla
+	//CASO 5: id de bombilla para saber cuales bombillas estan quemadas.
 	static void idBombillasFundidas(Object bombilla[]) {
-
 		try {
 			System.out.print("\nEstados de las Bombillas:");
 			for(int i = 0; i < CANTIDAD_BOMBILLAS; i++) { 				
 				if(bombilla[i] == null) {
-					System.out.print("\nLa Bombilla " + i + " se encuentra quemada.");
+					System.out.print("\nLa Bombilla " + (i + 1) + " se encuentra quemada.");
 				}
 			}  
 		}
@@ -188,8 +175,4 @@ public class Bombilla {
 		}	
 	}
 	
-	
-	
-	
-
 }
