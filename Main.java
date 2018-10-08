@@ -4,17 +4,6 @@ import java.util.Scanner;
 
 public class Main {
 	
-	 // Es para inicializa el el maximo de las bombillas y el limite de intensidad.
-	public static final int BOMBILLAS = 6, INTENSIDAD = 5; 
-	
-	// Este método recibira un objeto e inicializa las 6 bombillas de 0 a 5
-	public static void inicializar(Object bombilla[]){
-		for(int i = 0; i < BOMBILLAS; i++) {  
-			bombilla[i] = new Bombillas(i);
-		} 
-	} 
-	
-	
 	// Esto es para mostrar el menú de opciones.
 	public static int menu() {
 		System.out.println("\n\n\n");
@@ -42,9 +31,15 @@ public class Main {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
-		Bombillas bombilla[] = new Bombillas[BOMBILLAS];  // esto es un array de objetos Bombillas.
+		int cantidadBombillas = Bombilla.CANTIDAD_BOMBILLAS;  // Es la cantidad de bombillas.
+		int intesidadMaxima = Bombilla.MAX_INTENSIDAD; // Es la maxima intensidad
+		
+		
+		Bombilla bombilla[] = new Bombilla[cantidadBombillas];  // esto es un array de objetos Bombillas.
 		Scanner sc = new Scanner(System.in);  // para entrada de opciones o elegir una bombilla.
 		int respuesta;  // Representa la opcion elejida.
+		//int cantidadBombillas, bombillasApagadas, bombillasEncendidas, quemadadas;
+		//boolean estado = false;
 	
 		do {
 			respuesta = menu();  // Llama al menu de opciones devolviendo un valor entero.
@@ -52,7 +47,7 @@ public class Main {
 			switch(respuesta){
 			case 1: 
 				// Aquí se inicializa las 6 bombillas de 0 a 5
-				inicializar(bombilla);  
+				Bombilla.inicializar(bombilla);  
 				System.out.println("\nBombillas inicializadas.\n\n");		
 				break;
 				
@@ -60,7 +55,7 @@ public class Main {
 				// Aquí se verifica el estado inicializado de las bombillas.
 				try {
 					System.out.print("\nValores de las Bombillas:");
-					for(int i = 0; i < BOMBILLAS; i++) { 	
+					for(int i = 0; i < cantidadBombillas; i++) { 	
 						if(bombilla[i] != null) {  // si la bombilla esta quemada, esta no se mostrada su estado.
 							bombilla[i].detallesBombilla();
 							System.out.print(" en la Bombilla Nº" + (i + 1));	
@@ -77,17 +72,17 @@ public class Main {
 				//Aquí se podra aumentar o bajar la intensidad de una bombilla.
 				int foco;
 				do {  // Esto verifica que solo se elija una de las 6 bombillas
-					System.out.print("\nElija una de las "  + BOMBILLAS + " bombillas: ");
+					System.out.print("\nElija una de las "  + cantidadBombillas + " bombillas: ");
 					foco = sc.nextInt();
 
-				}while(foco > BOMBILLAS);
+				}while(foco > cantidadBombillas);
 
 				System.out.print("ingrese una intensidad: ");
 				int intensidad = sc.nextInt();
 				
 				try {
 					bombilla[foco - 1].setIntensidad(intensidad); // Subiendo o bajando la intensidad de una bombilla
-					if(intensidad > INTENSIDAD) {  // Con esto bloqueamos la bombilla cuando se quema.
+					if(intensidad > intesidadMaxima) {  // Con esto bloqueamos la bombilla cuando se quema.
 						System.out.println("\n¡¡¡ La Bombilla "  + foco + " se ha quemado. !!!");
 						bombilla[foco - 1] = null;  // La bombilla quemada es anulada para que ya no se pueda modificar.
 					}
@@ -122,4 +117,19 @@ A12 - Bombillas de intensidad variable
 [x]2) suba la intensidad de cada una de las bombillas y mostrad su estado
 
 [x]3) Baje la intensidad de cada una de las bombillas y mostrad su estado
+
+
+A2.1 - Bombilla 2. Static / no static.
+Modifique la clase bombilla que hicisteis en la sesión anterior de manera que se pueda saber (con los métodos correspondientes):
+1 [] Cuántas bombillas se han creado en total.
+2 [] Cuántas bombillas están apagadas, cuántas encendidas y cuántas se han fundido.
+3 [] ¿Cuáles son las bombillas que se han fundido (hay que asignar un número diferente en cada bombilla). Puede suponer que como 
+     mucho habrá 20 bombillas.
+
+A parte [] poner cuando una bomnilla se quema.
+
+
+
+
+
 */
